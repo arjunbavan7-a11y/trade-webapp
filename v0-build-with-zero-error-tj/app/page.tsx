@@ -44,17 +44,6 @@ export default function DashboardPage() {
   const unreadAlerts = alerts.filter((a) => !a.read).length
   const hasData = allBots.length > 0
 
-  if (isLoading) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-background">
-        <div className="flex flex-col items-center gap-4">
-          <Loader2 className="h-8 w-8 animate-spin text-primary" />
-          <p className="text-muted-foreground">Connecting to MT5 data stream...</p>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className="flex min-h-screen bg-background">
       {/* Sidebar */}

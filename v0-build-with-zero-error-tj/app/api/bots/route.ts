@@ -16,11 +16,15 @@ function verifyApiKey(request: NextRequest): boolean {
 export async function GET(request: NextRequest) {
   try {
     const bots = botStorage.getAll()
-    
+
     return NextResponse.json({
       success: true,
       data: bots,
       timestamp: new Date().toISOString(),
+    }, {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+      }
     })
   } catch (error) {
     console.error("Error fetching bots:", error)

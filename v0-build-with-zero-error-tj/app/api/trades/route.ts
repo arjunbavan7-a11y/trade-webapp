@@ -40,6 +40,10 @@ export async function GET(request: NextRequest) {
       data: trades,
       count: trades.length,
       timestamp: new Date().toISOString(),
+    }, {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+      }
     })
   } catch (error) {
     console.error("Error fetching trades:", error)

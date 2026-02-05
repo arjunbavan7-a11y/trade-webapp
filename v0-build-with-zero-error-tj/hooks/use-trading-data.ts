@@ -36,7 +36,7 @@ export function useTradingData() {
   const [trades, setTrades] = useState<Trade[]>([])
   const [performanceHistory, setPerformanceHistory] = useState<PerformanceDataPoint[]>([])
   const [alerts, setAlerts] = useState<AlertNotification[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const [isConnected, setIsConnected] = useState(false)
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
   
@@ -124,11 +124,9 @@ export function useTradingData() {
       }
 
       setLastUpdate(new Date())
-      setIsLoading(false)
     } catch (error) {
       console.error("[v0] Error fetching data:", error)
       setIsConnected(false)
-      setIsLoading(false)
     }
   }, [])
 
@@ -136,8 +134,8 @@ export function useTradingData() {
   useEffect(() => {
     fetchData()
 
-    // Poll for updates every 2 seconds
-    updateIntervalRef.current = setInterval(fetchData, 2000)
+    // Poll for updates every 5 seconds
+    updateIntervalRef.current = setInterval(fetchData, 5000)
 
     return () => {
       if (updateIntervalRef.current) {
