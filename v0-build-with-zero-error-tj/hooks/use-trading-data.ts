@@ -130,12 +130,13 @@ export function useTradingData() {
     }
   }, [])
 
-  // Initial fetch and polling
+  // Initial fetch only (polling disabled)
   useEffect(() => {
     fetchData()
 
-    // Poll for updates every 5 seconds
-    updateIntervalRef.current = setInterval(fetchData, 5000)
+    // Polling disabled for better performance
+    // Uncomment the lines below to enable auto-refresh every 5 seconds
+    // updateIntervalRef.current = setInterval(fetchData, 5000)
 
     return () => {
       if (updateIntervalRef.current) {
