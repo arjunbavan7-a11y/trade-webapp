@@ -19,7 +19,7 @@ input double   MaxLossPercent    = 4.0;      // Maximum Loss Percentage of Initi
 
 // API Configuration
 input string   ApiBaseUrl        = "https://your-app.vercel.app";  // Your Vercel Dashboard URL
-input string   ApiKey            = "";       // API Key for authentication
+input string   ApiKey            = "mt5_33de78bdbabed08c005a806a10a407ceef8b04bc15bf93a83ce4346470d369d4";       // API Key for authentication
 input string   ClientId          = "c1";     // Unique Client ID for this account
 input int      ApiUpdateSeconds  = 30;       // How often to send updates to API (seconds)
 
